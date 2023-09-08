@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import logo from './assets/logo.png'
 import profile from './assets/icons8-user-50.png'
-
+import ReactPlayer from 'react-player'
 function App() {
   const [videoData, setVideoData] = useState([]);
   const handleSearch = async (e) => {
@@ -57,12 +57,18 @@ function App() {
           videoData && videoData.length > 0 ? videoData.map(item => {
             return (<div className="border border-gray-300 rounded-lg overflow-hidden m-4 shadow-md bg-white flex flex-col w-96">
               <div className="relative video-container">
-                <iframe
+                <ReactPlayer
+                  url={item.video}
+                  controls
+                  width="100%"
+                  height="100%"
+                />
+                {/* <iframe
                   src={item.video}
                   title={item.heading}
                   allowFullScreen
                   className="absolute w-full h-full top-0 left-0"
-                ></iframe>
+                ></iframe> */}
               </div>
               <div className="p-4 card-info">
                 <h2 className="text-xl font-bold mb-2">{removeText(item.heading)}</h2>
