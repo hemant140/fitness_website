@@ -5,6 +5,7 @@ import profile from './assets/icons8-user-50.png'
 import ReactPlayer from 'react-player'
 function App() {
   const [videoData, setVideoData] = useState([]);
+
   const handleSearch = async (e) => {
     try {
       const response = await fetch(
@@ -41,17 +42,17 @@ function App() {
             className="py-2 md:py-3 md:w-[400px] lg:w-[800px] px-8 rounded-full border focus:outline-none focus:ring-2 focus:ring-gradient-to-b from-black to-gray-950"
           />
         </div>
-        <div className="">
+        <div className="md:px-4">
           <img src={profile} alt="Profile" className="h-12 md:h-16 lg:h-16" />
         </div>
       </div>
-     
+
       {/* Card data   */}
       <div className='flex justify-center flex-wrap -mx-4 h-full w-full px-2 '
       >
         {
-          videoData && videoData.length > 0 ? videoData.map(item => {
-            return (<div className="border border-gray-300 rounded-lg overflow-hidden m-4 shadow-md bg-white flex flex-col w-96">
+          videoData && videoData.length > 0 ? videoData.map((item, index) => {
+            return (<div key={index} className="border border-gray-300 rounded-lg overflow-hidden m-4 shadow-md bg-white flex flex-col w-96">
               <div className="relative video-container">
                 <ReactPlayer
                   url={item.video}
@@ -72,7 +73,7 @@ function App() {
                   {item.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="inline-block bg-gradient-to-b from-black to-gray-800 text-white rounded-full px-3 py-1 text-sm font-semibold mr-2"
+                      className="inline-block bg-gradient-to-b from-black to-gray-800 text-white  rounded-full px-3 py-1 text-sm font-semibold mr-2"
                     >
                       {tag}
                     </span>
@@ -80,10 +81,10 @@ function App() {
                 </div>
               </div>
             </div>);
-          }) : <div class="min-h-screen flex flex-col  justify-center items-center ">
-            <div class="text-center text-white">
-              <h1 class="md:text-6xl font-extrabold mb-6 text-3xl">Search for Fitness Videos</h1>
-              <p class="text-yellow-400 md:text-lg text-sm font-semibold mb-8">Welcome to Your Ultimate Destination for Fitness & Code: Unlocking a Healthier Lifestyle and Mastering Programming Skills!</p>
+          }) : <div className="min-h-screen flex flex-col  justify-center items-center ">
+            <div className="text-center text-white">
+                <h1 className="md:text-6xl font-extrabold mb-6 text-3xl">Discover Fitness and Code Search My Videos</h1>
+              <p className="text-yellow-400 md:text-lg text-sm font-semibold mb-8">Welcome to Your Ultimate Destination for Fitness & Code Unlocking a Healthier Lifestyle and Mastering Programming Skills!</p>
             </div>
           </div>
         }
