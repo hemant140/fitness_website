@@ -45,11 +45,7 @@ function App() {
           <img src={profile} alt="Profile" className="h-12 md:h-16 lg:h-16" />
         </div>
       </div>
-      {
-
-      }
-
-
+     
       {/* Card data   */}
       <div className='flex justify-center flex-wrap -mx-4 h-full w-full px-2 '
       >
