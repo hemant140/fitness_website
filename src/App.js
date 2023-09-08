@@ -5,7 +5,6 @@ import profile from './assets/icons8-user-50.png'
 
 function App() {
   const [videoData, setVideoData] = useState([]);
-  const [hide, setHide] = useState(false);
   const handleSearch = async (e) => {
     try {
       const response = await fetch(
@@ -13,7 +12,6 @@ function App() {
       );
       const data = await response.json();
       setVideoData(data.results);
-      setHide(true)
 
     } catch (error) {
       console.log(error)
@@ -88,7 +86,7 @@ function App() {
           </div>
         }
       </div>
-      
+
     </div>
   );
 }
